@@ -1,0 +1,52 @@
+body{
+    text-align: center;
+    background-color: rgb(1, 23, 43);
+}
+
+.container{
+    display: block;
+    margin: 20px;
+}
+
+.title{
+    color: white;
+    font-size: 10em;
+}
+
+.boxes{
+    display: flex;
+    height: 33em;
+    width: 33em;
+    background-color: rgba(184, 200, 241, 0.877);
+    border: 20px solid rgb(1, 23, 43);;
+    border-radius: 8em;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.grid{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 3vh;
+    width: 50vw;
+}
+
+.reset-btn{
+    width: 10vw;
+    color: black;
+    height: 5vh;
+    border-radius: 5em;
+    font-size: 4.5em;
+    cursor: pointer;
+    background-color: rgb(187, 173, 252);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.boxes img{
+    padding: 5em;
+}
+
+.title img{
+    width: 0.8em;
+}
