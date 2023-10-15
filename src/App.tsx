@@ -1,8 +1,10 @@
-import TicTacToe from './Components/TicTacToe/TicTacToe'
+import TTT from './Components/TTT/TTT'
 
 function App(){
   return (
-    <TicTacToe/>
+    <>
+      <TTT/>
+    </>
   )
 }
 
