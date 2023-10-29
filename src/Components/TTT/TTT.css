@@ -38,6 +38,14 @@ body{
 .heading{
     color: aliceblue;
     font-size: 7rem;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.heading2{
+    color: aliceblue;
+    font-size: 5rem;
+    margin: 0;
 }
 
 .reset-button{
@@ -57,4 +65,74 @@ body{
 
 .reset-button:hover{
     background-color: rgb(192, 232, 255);
+}
+
+.rematch-request{
+    position: absolute;
+    display: block;
+    background-color: pink;
+    padding: 1rem;
+    border: 2px solid #333;
+    border-radius: 2rem;
+    height: 15rem;
+    width: 50rem;
+}
+
+.options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.option-btn{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em;
+    color: black;
+    border-radius: 5em;
+    cursor: pointer;
+    background-color: rgba(192, 232, 255, 0.801);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 8rem;
+    height: 4rem;
+    font-size: 2.5rem;
+}
+
+.rematch-msg{
+    font-size: 3.3rem;
+}
+
+
+.leave-btn{
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2em;
+    color: black;
+    cursor: pointer;
+    background-color: rgba(192, 232, 255, 0.801);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 4rem;
+    position: fixed;
+    top: 3rem; 
+    right: 3rem;  
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(1, 23, 43); /* Adjust the color and transparency as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; 
+}
+
+.hidden{
+    display: none;
 }
