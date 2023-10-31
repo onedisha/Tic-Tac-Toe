@@ -3,6 +3,7 @@ import cross from '../../assets/cross.png';
 import zero from '../../assets/zero.png';
 import './TTT.css'
 import { socket } from '../../socket';
+import { useNavigate } from "react-router-dom";
 
 interface Props{
   symbol: string;
@@ -12,11 +13,13 @@ interface Props{
   setTurn: any;
   lock: boolean;
   table: string[];
+  start: boolean;
 }
 
-const Box = ({symbol, idx, table, setTable, turn, setTurn, lock}: Props) => {
+const Box = ({symbol, idx, table, setTable, turn, setTurn, lock, start}: Props) => {
   const play = () => {
     if(lock) return;
+    if(!start) return;
     let t= [...table];
     if(t[idx]) return;
     t[idx]=turn;
@@ -35,10 +38,12 @@ const TTT = () => {
   let [table, setTable] = React.useState(["","","","","","","","",""]);
   let [turn, setTurn] = React.useState('x');
   let [lock, setLock] = React.useState(false);
+  let [start, setStart] = React.useState(false);
   let [msg, setMsg] = React.useState('Tic-Tac-Toe');
   let [player, setPlayer] = React.useState(".");
   let [boxdisplay, setBoxdisplay] = React.useState("rematch-request hidden");
   let [overlay, setOverlay] = React.useState("overlay hidden");
+  let navigate = useNavigate();
 
   const reset = () => {
     setTable(["","","","","","","","",""]);
@@ -78,7 +83,18 @@ const TTT = () => {
     setOverlay("overlay");
   }
 
-  socket.on('left', (msg: string) => {alert(msg)});
+  socket.on('left', (msg: string) => {
+    alert(msg);
+    reset();
+  });
+
+  socket.on('start', (msg:boolean) => {
+    setStart(msg);
+  })
+
+  const onJoin = () => {
+    navigate("/");
+  }
 
   const checkWin = () => {
     let i: number;
@@ -133,11 +149,11 @@ const TTT = () => {
     }
   }, [table]);
 
+  socket.on('setplayer', (msg: string) => {
+    setPlayer(msg);
+  })
 
   React.useEffect(() => {
-    socket.emit('code', window.location.hash, (p : string) =>{
-      setPlayer(p);
-    });
     function onMoveEvent(value:any) {
       setTable(value);
       setTurn((e:any) => {
@@ -145,25 +161,21 @@ const TTT = () => {
         return 'x';
       });
     }
-
     socket.on("moved", onMoveEvent);
-
     return () => {
       socket.off("moved", onMoveEvent);
     };
-
   }, []);
-  
 
   return (
     <>
     <div className='container'>
-      <h1 className='heading'>{msg}</h1>
+      <h1 className='heading1'>{msg}</h1>
       <h2 className='heading2'>{player}</h2>
       <button className='leave-btn' onClick={leaveMatch}>Leave</button>
       <div className='grid'>
         {table.map((e, index) => {
-          return <Box symbol={e} key={index} idx={index} setTable={setTable} turn={turn} setTurn={setTurn} lock={lock} table={table} />;
+          return <Box symbol={e} key={index} idx={index} setTable={setTable} turn={turn} setTurn={setTurn} lock={lock} table={table} start={start} />;
         })}
       </div>
 
@@ -178,7 +190,8 @@ const TTT = () => {
       <button className='reset-button' onClick={rematchReq}>Request Rematch</button>
     </div>
     <div className={overlay}>
-        <h1 className="heading">You left the match!</h1>
+        <h1 className="left-msg">You left the match!</h1>
+        <div className="btn"><button className='join-btn' onClick={onJoin}>Join Another Match</button></div>
     </div>
     </>
   )

@@ -6,7 +6,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 0.5rem;
     margin: 20px;
     justify-content: center;
     align-items: center;
@@ -14,10 +14,10 @@ body{
 
 .box{
     display: flex;
-    height: 25rem;
-    width: 25rem;
+    height: 7rem;
+    width: 7rem;
     background-color:  rgb(209, 184, 241);
-    border-radius: 5rem;
+    border-radius: 1rem;
     justify-content: center;
     align-items: center;
 }
@@ -27,25 +27,26 @@ body{
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     width: fit-content;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .box-img{
-    width: 18em;
+    width: 5rem;
 }
 
-.heading{
+.heading1{
     color: aliceblue;
-    font-size: 7rem;
+    font-size: 3.5rem;
     margin-bottom: 0;
     margin-top: 5px;
 }
 
 .heading2{
     color: aliceblue;
-    font-size: 5rem;
+    font-size: 2.5rem;
     margin: 0;
+    margin-bottom: 1rem;
 }
 
 .reset-button{
@@ -57,25 +58,24 @@ body{
     color: black;
     height: 5vh;
     border-radius: 5em;
-    font-size: 4.5em;
+    font-size: 1.5em;
     cursor: pointer;
     background-color: rgba(192, 232, 255, 0.801);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .reset-button:hover{
-    background-color: rgb(192, 232, 255);
+    background-color: rgba(39, 153, 219, 0.877);
 }
 
 .rematch-request{
     position: absolute;
-    display: block;
     background-color: pink;
     padding: 1rem;
     border: 2px solid #333;
     border-radius: 2rem;
-    height: 15rem;
-    width: 50rem;
+    height: 8rem;
+    width: 20rem;
 }
 
 .options{
@@ -88,36 +88,40 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8em;
+    height: 1rem;
+    padding: 1em;
     color: black;
     border-radius: 5em;
     cursor: pointer;
     background-color: rgba(192, 232, 255, 0.801);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width: 8rem;
-    height: 4rem;
-    font-size: 2.5rem;
+    font-size: 1.3rem;
 }
 
 .rematch-msg{
-    font-size: 3.3rem;
+    font-size: 1.8rem;
 }
 
 
 .leave-btn{
-    font-size: 3.5rem;
+    font-size: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.2em;
+    padding: 1rem;
     color: black;
     cursor: pointer;
+    border-radius: 5em;
     background-color: rgba(192, 232, 255, 0.801);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 4rem;
+    height: 3rem;
     position: fixed;
-    top: 3rem; 
-    right: 3rem;  
+    top: 2rem; 
+    right: 1.5rem;  
+}
+
+.leave-btn:hover{
+    background-color: rgba(39, 153, 219, 0.877);
 }
 
 .overlay{
@@ -126,11 +130,39 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(1, 23, 43); /* Adjust the color and transparency as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgb(1, 23, 43); 
   z-index: 999; 
+}
+
+.join-btn{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: black;
+    cursor: pointer;
+    border-radius: 5em;
+    background-color: rgba(192, 232, 255, 0.801);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 3rem;
+}
+
+.join-btn:hover{
+    background-color: rgba(39, 153, 219, 0.877);
+}
+
+.left-msg{
+    color: aliceblue;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 30vh;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
 }
 
 .hidden{

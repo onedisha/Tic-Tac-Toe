@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+    background-color: rgb(1, 23, 43);
+}
+
+.heading{
+    color: aliceblue;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.join-room{
+    display: inline;
+}
+
+
+.question{
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.input-box{
+    width: 40vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 200%;
+}
+
+.home-page-btn{
+    width: fit-content;
+    padding: 0.4em;
+    margin-left: 1rem;
+    color: black;
+    height: 2.8rem;
+    border-radius: 5em;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: rgba(192, 232, 255, 0.801);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.home-page-btn:hover{
+    background-color: rgba(39, 153, 219, 0.877);
+}
