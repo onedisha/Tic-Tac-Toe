@@ -83,10 +83,17 @@ const TTT = () => {
     setOverlay("overlay");
   }
 
-  socket.on('left', (msg: string) => {
-    alert(msg);
-    reset();
-  });
+  React.useEffect(() => {
+    function onLeftEvent(msg: string) {
+      console.log("h");
+      alert(msg);
+      reset(); 
+    }
+    socket.on("left", onLeftEvent);
+    return () => {
+      socket.off("left", onLeftEvent);
+    };
+  }, [])
 
   socket.on('start', (msg:boolean) => {
     setStart(msg);
@@ -170,9 +177,11 @@ const TTT = () => {
   return (
     <>
     <div className='container'>
-      <h1 className='heading1'>{msg}</h1>
+      <div className="title">
+        <h1 className='heading1'>{msg}</h1>
+        <button className='leave-btn' onClick={leaveMatch}>Leave</button>
+      </div>
       <h2 className='heading2'>{player}</h2>
-      <button className='leave-btn' onClick={leaveMatch}>Leave</button>
       <div className='grid'>
         {table.map((e, index) => {
           return <Box symbol={e} key={index} idx={index} setTable={setTable} turn={turn} setTurn={setTurn} lock={lock} table={table} start={start} />;

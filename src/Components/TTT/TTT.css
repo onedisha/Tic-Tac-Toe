@@ -40,6 +40,10 @@ body{
     font-size: 3.5rem;
     margin-bottom: 0;
     margin-top: 5px;
+    min-width: 300px;
+    flex-grow: 10;
+    align-content: center;
+    margin-left: 5.5rem;
 }
 
 .heading2{
@@ -108,20 +112,23 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     color: black;
     cursor: pointer;
     border-radius: 5em;
     background-color: rgba(192, 232, 255, 0.801);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 3rem;
-    position: fixed;
-    top: 2rem; 
-    right: 1.5rem;  
 }
 
 .leave-btn:hover{
     background-color: rgba(39, 153, 219, 0.877);
+}
+
+.title{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .overlay{

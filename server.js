@@ -129,7 +129,7 @@ io.on("connection", (socket) => {
         }
       });
     }
-    if(data[room].length === 0) delete data[room];
+    if(data[room] && data[room].length === 0) delete data[room];
     delete idRooms[socket.id];
   })
 });
